@@ -1,0 +1,40 @@
+[app]
+# app name
+name = "Wago"
+
+# running mode, [debug, test, release]
+runMode = "debug"
+
+# router mode, [comment, auto]
+# comment mode: use comment to declare restful routers
+# auto mode: auto register routers by Struct name and method name, [GET, POST] HTTP method are registered.
+# [GET, POST] HTTP method are registered while method has not explicit the request method.
+# e.g:
+# func (t *ExampleController) HelloWorld() , [GET, POST] HTTP method will be registered.
+# func (t *ExampleController) HelloWorld_POST() , [POST] HTTP method will be registered.
+# routerMode = "comment"
+routerMode = "auto"
+
+# default controller path
+controllerPath = "controller"
+
+# custom router style
+# only when RouterMode=auto, RouterSep is valid.
+# only ''(empty), '-' or '_' allowed.
+# '' means use struct's method name as router path, eg: /v1/HomeTest/HelloWorld
+# '-' means use snake string as router path, eg: /v1/home-test/hello-world
+# '_' means use snake string as router path, eg: /v1/home_test/hello_world
+routerSep = "-"
+
+# HTTP server configurations
+[server]
+port  = 9107
+host = ""
+# further configuration with http server
+# if you have no ideas, no need to modify.
+readTimeout = 300
+readHeaderTimeout = 300
+whiteTimeout = 300
+idleTimeout = 300
+maxHeaderBytes = 1024
+
