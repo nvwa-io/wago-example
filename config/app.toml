@@ -13,7 +13,7 @@ runMode = "debug"
 # func (t *ExampleController) HelloWorld() , [GET, POST] HTTP method will be registered.
 # func (t *ExampleController) HelloWorld_POST() , [POST] HTTP method will be registered.
 # routerMode = "comment"
-routerMode = "auto"
+routerMode = "comment"
 
 # default controller path
 controllerPath = "controller"
@@ -37,4 +37,33 @@ readHeaderTimeout = 300
 whiteTimeout = 300
 idleTimeout = 300
 maxHeaderBytes = 1024
+
+# HTTP CORS configuration
+[server.cors]
+allowOrigins = ["https://foo.com"]
+allowMethods = ["POST", "GET"]
+allowHeaders = ["Origin"]
+exposeHeaders = ["Content-Length"]
+allowCredentials = false
+maxAge = 12 # hour
+
+[log]
+# full file path
+filename = "/tmp/wago/app.log"
+# megabytes
+maxSize = 500
+# maximum number of old log files to retain
+maxBackups = 3
+# days
+maxAge = 30
+# gzip
+compress = false
+# [json,text] supported
+formatter = "json"
+# [0~7] @TODO declare
+level = 7
+# log method name
+logMethodName  = false
+# print log to console
+console = true
 
